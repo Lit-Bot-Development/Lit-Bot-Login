@@ -19,26 +19,30 @@ def logout():
         json.dump(data, f, indent=4)
     login()
 
-def desktop():
+def recapture():
     global L
     print("\nWillkommen bei Lit-Bot")
     print(f"Sie sind angemeldet als: {data['Cache']['Name']}")
     E  = input("<> ")
     if E == "/help":
-        pass
+        print("Um hier weiter zu kommen bitte gib '/recapture' ein")
+        recapture()
     elif E == "/kill":
         sys.exit()
     elif E == "/logout":
         logout()
+    elif E == "/recapture":
+        pass
+        #Hier die Verbindung zum Lit-Bot Programm
     else:
         if L >= 4:
             cls()
             print("Für Hilfe gib /help ein \n")
-            desktop()
+            recapture()
         else:
             print("Eingabe nicht vorhanden. Bitte erneut versuchen \n")
             L += 1
-            desktop()
+            recapture()
 
 def signup():
     B = input("Bitte gib deinen Benutzernamen ein: ")
@@ -53,9 +57,9 @@ def signup():
 def login():
     global H
     if data['Cache']['Angemeldet'] == "True":
-        desktop()
+        recapture()
     elif data['Cache']['Angemeldet'] == "False":
-        V = input("Bitte Benutzer auswählen: ")
+        V = input("\nBitte Benutzer auswählen: ")
         if V in data['Benutzer']:
             index = data['Benutzer'].index(V)
             User = data['Benutzer'][index]
@@ -66,7 +70,7 @@ def login():
                     data['Cache']['Name'] = f"{V}"
                     with open("Js.json", "w+") as f:
                         json.dump(data, f, indent=4)
-                    desktop()
+                    recapture()
                 else:
                     P = input(f"\nBitte das Passwort für den Benuzter ({User}) eingeben: ")
                     if P == Passwort:
@@ -74,7 +78,7 @@ def login():
                         data['Cache']['Name'] = f"{V}"
                         with open("Js.json", "w+") as f:
                             json.dump(data, f, indent=4)
-                        desktop()
+                        recapture()
                     else:
                         cls()
                         print("Falsches Passwort. Bitte erneut versuchen")
