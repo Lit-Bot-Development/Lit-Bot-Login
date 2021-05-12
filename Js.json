@@ -1,13 +1,13 @@
 {
     "Benutzer": [
         "Mauritz",
-        "local"
+        "local",
+        "Admin"
     ],
     "Passwort": [
         "MLemgen1709!",
-        "-"
+        "-",
+        "12"
     ],
-    "Cache":{
-        
-    }
+    "Cache": {}
 }

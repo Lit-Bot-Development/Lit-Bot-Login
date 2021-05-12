@@ -21,6 +21,8 @@ def desktop():
         pass
     elif E == "/kill":
         sys.exit()
+    elif E == "/logout":
+        login()
     else:
         if L >= 4:
             cls()
@@ -32,7 +34,6 @@ def desktop():
             desktop()
 
 def signup():
-    print("Lit-Bot Loginprogramm")
     B = input("Bitte gib deinen Benutzernamen ein: ")
     data['Benutzer'].append(B)
     P = input(f"Bitte gib das Passwort für den Benutzer ein ({B}): ")
@@ -44,7 +45,7 @@ def signup():
 
 def login():
     global H
-
+    cls()
     V = input("Bitte Benutzer auswählen: ")
     if V in data['Benutzer']:
         index = data['Benutzer'].index(V)
