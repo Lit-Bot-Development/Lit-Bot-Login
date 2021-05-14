@@ -10,7 +10,7 @@ cls()
 H = 0
 L = 0
 
-with open("Js.json") as f:
+with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json") as f:
     data = json.load(f)
 
 def logout():
@@ -49,7 +49,7 @@ def signup():
     data['Benutzer'].append(B)
     P = input(f"Bitte gib das Passwort für den Benutzer ein ({B}): ")
     data['Passwort'].append(P)
-    with open("Js.json", "w+") as f:
+    with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json", "w+") as f:
         json.dump(data, f, indent=4)
     print(f"Login-Daten: \n\n Benutzername: {B} \n Passwort: {P}")
     login()
@@ -68,7 +68,7 @@ def login():
                 if Passwort == "-":
                     data['Cache']['Angemeldet'] = "True"
                     data['Cache']['Name'] = f"{V}"
-                    with open("Js.json", "w+") as f:
+                    with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json", "w+") as f:
                         json.dump(data, f, indent=4)
                     recapture()
                 else:
@@ -76,7 +76,7 @@ def login():
                     if P == Passwort:
                         data['Cache']['Angemeldet'] = "True"
                         data['Cache']['Name'] = f"{V}"
-                        with open("Js.json", "w+") as f:
+                        with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json", "w+") as f:
                             json.dump(data, f, indent=4)
                         recapture()
                     else:
