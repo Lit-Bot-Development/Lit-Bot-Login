@@ -15,7 +15,7 @@ with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json") as f:
 
 def logout():
     data['Cache']['Angemeldet'] = "False"
-    with open("Js.json", "w+") as f:
+    with open(r"C:\Users\Gaming PC\Documents\GitHub\Application\Js.json", "w+") as f:
         json.dump(data, f, indent=4)
     login()
 
